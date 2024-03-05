@@ -1,0 +1,22 @@
+name: Makefile CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: install yelp tools
+      run: sudo apt-get update && sudo apt-get install -y yelp-tools
+
+    - name: Install dependencies
+      run: make
+
