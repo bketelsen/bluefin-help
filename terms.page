@@ -1,0 +1,23 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="terms">
+<info>
+  <link type="guide" xref="index"/>
+</info>
+<title>Terms</title>
+<terms>
+  <item>
+    <title>Fava beans</title>
+    <title>Lima beans</title>
+    <p>These are actually beans.</p>
+  </item>
+  <item>
+    <title>Jelly beans</title>
+    <p>These aren't really beans, but they sure are yummy.</p>
+  </item>
+  <item>
+    <title>Magic beans</title>
+    <p>You can plant these to grow a giant beanstalk.</p>
+  </item>
+</terms>
+</page>
