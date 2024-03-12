@@ -1,0 +1,74 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="distrobox">
+
+<info>
+    <link type="guide" xref="index#nav"/>
+
+    <desc></desc>
+    <?http header="X-Generator: html2mallard" ?>
+</info>
+
+<title>Distrobox</title>
+
+<p>When you want to install applications not required on your base system and not available as Flatpaks, you can use a "toolbox" program. Toolbox programs run OS containers using <link type="seealso" href="https://podman.io/">Podman</link> allowing you to enter into the containers' command line interfaces and use them transparently with access to files in your home directory. For example, you could have one toolbox where all of your software development-related packages and programs live.</p>
+<p>Toolboxes don't require as much maintenance as running the distribution on bare metal, and you can very easily have multiple side-by-side, remove existing ones, and replace them with new entirely fresh ones.</p>
+<p>Fedora comes with <link type="seealso" href="https://containertoolbx.org/"><code>toolbx</code></link> and the Universal Blue images come with both <code>toolbx</code> and <link type="seealso" href="https://distrobox.privatedns.org/"><code>distrobox</code></link>, but this page will only cover <code>distrobox</code>.</p>
+
+<section>
+ <title>Creating and using a Distrobox</title>
+ <p>To create a Fedora 38 Distrobox, run:</p>
+ <p><code>bash
+ distrobox create --image registry.fedoraproject.org/fedora-toolbox:38 --name fedora</code></p>
+ <p>To create an Ubuntu 22.04 Distrobox, run:</p>
+ <p><code>bash
+ distrobox create --image docker.io/library/ubuntu:22.04 --name ubuntu</code></p>
+ <p>To create an Arch Linux Distrobox, run:</p>
+ <p><code>bash
+ distrobox create --image docker.io/library/archlinux:latest --name arch</code></p>
+ <p><link type="seealso" href="https://distrobox.privatedns.org/compatibility/#containers-distros">List of tested container images</link>.</p>
+ <p>When choosing an image for your container, consider which package manager and repos you want to use (e.g. <code>apt</code> vs. <code>pacman</code>), and pick one that you're most comfortable with!</p>
+ <p>Once you've created your Distrobox, you can enter it by running:</p>
+ <p><code>bash
+ distrobox enter &lt;boxname&gt;</code></p>
+ <p>Now you have access to everything installed within the Distrobox and can install new packages using its package manager.</p>
+ <p>Read more in <link type="seealso" href="https://distrobox.privatedns.org/">the Distrobox documentation</link> or <link type="seealso" href="https://github.com/89luca89/distrobox">GitHub repository</link>.</p>
+</section>
+
+<section>
+ <title>Exporting programs from Distrobox</title>
+ <p>You can export a GUI program (for example, <code>mpv</code>) by running the following from <em style="strong">inside the Distrobox</em>:</p>
+ <p><code>bash
+ distrobox-export --app mpv</code></p>
+ <p>You can also export a binary or CLI program (for example, <code>vim</code>) by running the following from <em style="strong">inside the Distrobox</em>. You need to provide an export path and know where the original binary exists in the Distrobox's filesystem. An easy way to find out is running <code>which vim</code> (replace <code>vim</code> with the name of the binary you want to export). The export command will create a shell script that runs the specified binary from inside the Distrobox.</p>
+ <p><code>bash
+ distrobox-export --bin /usr/bin/vim --export-path ~/.local/bin</code></p>
+ <p><link type="seealso" href="https://distrobox.privatedns.org/usage/distrobox-export/">Read more in the Distrobox documentation about <code>distrobox-export</code></link></p>
+</section>
+
+<section>
+ <title>Integrating VSCode with Distrobox</title>
+ <p>There are two ways to integrate VSCode with a Distrobox.
+ The easiest way is to just install it inside your Distrobox and <code>distrobox-export</code> it. The integrated terminal and all addons will then be run inside that single Distrobox. The other way is with <link type="seealso" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">the Dev Containers extension</link>.
+ Both ways are detailed inside <link type="seealso" href="https://distrobox.privatedns.org/posts/integrate_vscode_distrobox/">the official Distrobox tutorial for integrating with VSCode</link></p>
+</section>
+
+<section>
+ <title>Using the host's <code>xdg-open</code> inside Distrobox</title>
+ <p>Some GUI programs use <code>xdg-open</code> to open URLs, but it doesn't work when running your browser on the host.
+ You can fix this by adding the following shell script to your <code>~/.local/bin/</code> and giving it executable permissions.</p>
+ <p>```bash</p>
+</section>
+
+<section>
+ <title>!/bin/bash</title>
+ <p>if [ ! -e /run/.containerenv ] &amp;&amp; [ ! -e /.dockerenv ]; then # if not inside a container
+     /usr/bin/xdg-open "$@" # run xdg-open normally
+ else
+     distrobox-host-exec /usr/bin/xdg-open "$@" # run xdg-open on the host
+ fi
+ ```</p>
+ <p>If you have <code>xdg-open</code> installed inside the Distrobox, you need to make sure that <code>~/.local/bin/</code> is in your <code>$PATH</code> before <code>/usr/bin/</code>.</p>
+</section>
+
+
+</page>

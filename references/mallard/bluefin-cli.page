@@ -1,0 +1,74 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="bluefin_cli">
+
+<info>
+    <link type="guide" xref="index#nav"/>
+
+    <desc></desc>
+    <?http header="X-Generator: html2mallard" ?>
+</info>
+
+<title>Bluefin-Cli</title>
+
+
+<section>
+ <subtitle>Introducing <code>bluefin-cli</code></subtitle>
+ <p><em style="strong">Note:</em> This feature is under heavy development. If all of this is confusing to you ignore it. :smiley: </p>
+ <p><media type="image" src="upload://3k18RiX3TZMBkmp77bprKCl1ygI.jpeg" mime="image/png" /></p>
+ <p><code>ujust bluefin-cli</code> will install <code>bluefin-cli</code>, Bluefin's opt-in command line experience. It is a dedicated toolbox container that is designed to give the user access to as much software as possible while providing a modern Linux command line experience. It is purposely decoupled from the host system so that it can run on any Linux system.  </p>
+ <p><code>bluefin-cli</code> comes preconfigured with the <link type="seealso" href="https://brew.sh/">Homebrew</link> package manager and comes ready to go out of the box. It is the current recommended method to install command line applications in Bluefin.
+ - System level commands that are not in the container such as <code>rpm-ostree</code>, <code>podman</code>, <code>docker</code>, <code>systemctl</code>, and <code>ujust</code> transparently work. Commands that require <code>sudo</code> on the host will not work, use the host terminal in Ptyxis for those use cases. 
+ -  The <code>brew</code> command works as it does on other operating systems.
+ - This <link type="seealso" href="https://www.youtube.com/watch?v=to3WAHLd_RA">introductory video</link> goes over the features and history of Wolfi, which is designed for running in containers. 
+ - We feel that a distroless approach to deliver the entirety of the Homebrew ecosystem in a container is the perfect compliment to an existing host operating system. </p>
+
+ <p><em style="strong">Note</em>: We do not recommend installing Homebrew on the host as this can lead to conflicting libraries between brew and the system. </p>
+</section>
+
+<section>
+ <subtitle>Included software</subtitle>
+ <p><code>bluefin-cli</code> comes with the latest versions of <code>bash</code>, <code>fish</code>, and <code>zsh</code> included, as well as some other fantastic command line tools:
+ - <link type="seealso" href="https://github.com/atuinsh/atuin">atuin</link> for shell history
+ - <link type="seealso" href="https://github.com/eza-community/eza">eza</link> as a replacement <code>ls</code>
+ - <link type="seealso" href="https://github.com/sharkdp/fd">fd</link> for <code>find</code>
+ - <link type="seealso" href="https://github.com/junegunn/fzf">fzf</link> for command line fuzzy finding
+ - <link type="seealso" href="https://github.com/BurntSushi/ripgrep">ripgrep</link> for search
+ - <link type="seealso" href="https://github.com/uutils/coreutils">uutils</link> as <code>coreutils</code>
+ - <link type="seealso" href="https://github.com/ajeetdsouza/zoxide">zoxide</link> as <code>cd</code></p>
+ <p>The entire container is rebuilt every day from scratch, and Wolfi's aggresive update policy ensures that Bluefin is always on the latest version of software. <em>Fully automated</em>. </p>
+ <p>Brew's state is volume mounted to a file in your home directory so your container is fresh but your additional packages remain untouched. At this time it is <em style="strong">strongly recommended</em> to maintain a backup of your brew package list via the <link type="seealso" href="https://docs.brew.sh/Manpage#bundle-subcommand">brew bundle</link> subcommand.  </p>
+ <p>The apk package manager is preferred for fully declarative setups with <link type="seealso" href="https://github.com/ublue-os/boxkit">boxkit</link> or locally. You can file package requests on the <link type="seealso" href="https://github.com/wolfi-dev/">WolfiOS repository</link> for packages that you may need.</p>
+ <p>The intended endstate of <code>bluefin-cli</code> is a fully automated declarative config managed via git using Wolfi packages for clean daily rebuilds. <code>brew</code> is used to fill out the "long tail" of existing software.</p>
+</section>
+
+<section>
+ <subtitle>Use <code>bluefin-cli</code> on any Linux</subtitle>
+ <p><code>bluefin-cli</code> is for everyone! Here's the <link type="seealso" href="https://distrobox.it/">distrobox</link> command.</p>
+ <code>distrobox create -i ghcr.io/ublue-os/bluefin-cli -n bluefin
+ </code>
+ <p>It'll work with any terminal, but is probably enjoyed to it's fullest with <link type="seealso" href="https://gitlab.gnome.org/chergert/ptyxis">Ptyxis</link>. If you're not on a Bluefin host we recommend <link type="seealso" href="https://github.com/ublue-os/toolboxes">grabbing the quadlets</link> to get a managed, auto-updating experience. </p>
+</section>
+
+<section>
+ <subtitle>Why a new container instead of just using Ubuntu or Fedora?</subtitle>
+ <p>Alpha and Beta versions of Bluefin included Ubuntu as the default terminal experience. However, the team desired a distrobox that was designed from the bottom up to be a terminal experience instead of a traditional distribution. This is the way.   </p>
+ <p><link type="seealso" href="https://github.com/wolfi-dev">WolfiOS</link> was chosen due to:
+ - <link type="seealso" href="https://github.com/wolfi-dev#wolfi-features">These technical features</link>
+ - The team's investment in tooling and automation
+ - Aggressive update cadence
+ - Packaging priorities strongly skew towards the tools our target audience wants.</p>
+
+ <p><em style="strong">Note</em>: Ubuntu and Fedora containers will always be included and receive the same optimizations such as instant-launch, Ptyxis integration, etc.</p>
+</section>
+
+<section>
+ <subtitle>Assembling custom containers (Optional)</subtitle>
+ <p>For specific projects we recommend <em>assembling</em> on-demand distroboxes so that they are built fresh from scratch. Use the <code>ujust assemble</code> shortcut to declaratively build distroboxes defined in <code>/etc/distrobox/distrobox.ini</code>. This command will <em style="strong">destroy</em> your existing container and pull a new one from scratch. </p>
+ <p>Modify <code>/etc/distrobox/distrobox.ini</code> to add your custom packages to the stock containers so that your preferred environment can be rebuilt. Check out <link type="seealso" href="https://www.ypsidanger.com/declaring-your-own-personal-distroboxes/">Declaring your own personal distroboxes</link> for more information. Here's <link type="seealso" href="https://github.com/ublue-os/bluefin/blob/1ae2f3094cfaf5a581a89a440a2cb77507a9dcda/usr/etc/distrobox/distrobox.ini">an example distrobox.ini file</link></p>
+ <list>
+ <item><p>Refer to the <link type="seealso" href="https://distrobox.privatedns.org/#distrobox">Distrobox documentation</link> for more information on using and configuring custom images</p></item>
+ </list>
+</section>
+
+
+</page>

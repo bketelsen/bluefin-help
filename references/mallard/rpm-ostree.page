@@ -1,0 +1,63 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="rpm_ostree">
+
+<info>
+    <link type="guide" xref="index#nav"/>
+
+    <desc></desc>
+    <?http header="X-Generator: html2mallard" ?>
+</info>
+
+<title>Rpm-Ostree</title>
+
+<p>Note that this is a cheatsheet and not a replacement for the official documentation:</p>
+<list>
+<item><p><link type="seealso" href="https://ostreedev.github.io/ostree/">ostree</link></p></item>
+<item><p><link type="seealso" href="https://coreos.github.io/rpm-ostree/">rpm-ostree</link></p></item>
+</list>
+<p>OStree is how the root filesystem is managed in Universal Blue images. It can have multiple deployments including 1 active deployment and 1 or more standby or rollback deployments. </p>
+
+<section>
+ <title>Managing ostree</title>
+</section>
+
+<section>
+ <subtitle>Update ostree</subtitle>
+ <p>Pull updated version based on your current upstream repository.
+ <code>rpm-ostree upgrade</code></p>
+
+ <p>Note: Using the <code>ublue update</code> command includes this step. </p>
+</section>
+
+<section>
+ <subtitle>Roll back deployment</subtitle>
+ <p>This will change your next target boot to the previous deployment. Use this if you have issues with your current booted deployment.
+ <code>rpm-ostree rollback</code></p>
+</section>
+
+<section>
+ <subtitle>Add rpm package</subtitle>
+ <p>Install a new package layered on top of the file system tree.
+ Add <code>--now</code> to layer on top of the active tree.</p>
+ <p><code>rpm-ostree install $PACKAGE</code></p>
+</section>
+
+<section>
+ <subtitle>Get ostree status</subtitle>
+ <p>See the current booted file system tree and any layered packages.
+ <code>rpm-ostree status</code></p>
+
+ <p><em style="strong">Note:</em> This is very handy when getting help and reporting issues!</p>
+</section>
+
+<section>
+ <subtitle>Pin a file system tree</subtitle>
+ <p>To pin your current file system use <code>0</code> and for the previous booted file system use <code>1</code>.
+ This will keep a deployment available so it is not garbage collected.</p>
+ <p>Useful for major version changes and kernel changes.
+ <code>sudo ostree admin pin 0</code>
+ Original Docs and Cheatsheet: <link type="seealso" href="https://justingarrison.com/">Justin Garrison</link> and <link type="seealso" href="https://github.com/erlefloch">Erwan Le Floch</link></p>
+</section>
+
+
+</page>
