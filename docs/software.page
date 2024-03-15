@@ -1,0 +1,56 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="software">
+
+<info>
+    <link type="guide" xref="index#nav"/>
+
+    <desc></desc>
+    <?http header="X-Generator: html2mallard" ?>
+</info>
+
+<title>Software</title>
+
+
+<section>
+ <title>Flatpak</title>
+ <p>Flatpak is the default way of installing GUI applications. <link type="seealso" href="https://flathub.org/">Flathub</link> is the largest repository of Flatpak applications.</p>
+ <p>You can install Flatpaks using GNOME Softare or KDE Discover respective to which of the two desktop environment you are running. You can also install Flatpaks (for example, <code>mpv</code>) from the CLI by running:</p>
+ <p><code>bash
+ flatpak install flathub io.mpv.Mpv</code></p>
+ <p><em style="strong">Note</em>:  The CLI method will be necessary for desktop-environments other than GNOME or KDE.</p>
+ <p>You can also browse <link type="seealso" href="https://flathub.org/">the Flathub website</link> and when deciding you want to install something copy the proper command from the section "Manual Install" at the bottom of the page.</p>
+ <p>There should be a <code>.desktop</code> file for the application, so you can run it with your application launcher. You can also run Flatpaks (for example, <code>mpv</code>) from the CLI by running:</p>
+ <p><code>bash
+ flatpak run io.mpv.Mpv</code></p>
+</section>
+
+<section>
+ <title>Distrobox and Toolbox</title>
+ <p>Toolboxes are little CLI podman containers that you can install anything into without it polluting your host system. Read more on the dedicated page.</p>
+</section>
+
+<section>
+ <title>Fleek / Nix</title>
+ <p><link type="seealso" href="https://getfleek.dev/">Fleek</link> is a wrapper for <link type="seealso" href="https://nixos.org/manual/nix/stable/">Nix</link> <link type="seealso" href="https://github.com/nix-community/home-manager">home-manager</link> that can be used to easily install different packages with Nix. The packages are not isolated or containerized in any way, but they are still not part of your base system, as they are installed into Nix-specific directories. 
+ Fleek &amp; <code>home-manager</code> also take over some of your dotfiles such as your <code>.zshrc</code> or <code>.bashrc</code>.</p>
+ <p>Follow the <link type="seealso" href="https://getfleek.dev/docs/installation">installation instructions</link> to add Fleek to your environment.</p>
+ <p>To install a package (for example, <code>micro</code>) with Fleek, run:</p>
+ <p><code>bash
+ fleek add -a micro</code></p>
+ <p>The <code>-a</code> flag will apply the changes immediately, omitting it will just edit your configuration file and wait until you run <code>fleek apply</code> to apply it.</p>
+ <p>Read <link type="seealso" href="https://getfleek.dev/">the Fleek docs</link> for more information.</p>
+</section>
+
+<section>
+ <title><code>rpm-ostree</code></title>
+ <p><code>rpm-ostree</code> is the system package manager for atomic Fedora variants. Unlike more traditional Linux desktops, on an image-based Linux distribution you probably shouldn't install everything directly onto your base system. The more liberally you use the system package manager, the more likely you are to run into some instability that affects your base operating system, therefore we recommend that you use it <em style="strong">sparingly</em>. </p>
+ <p><em style="strong">Warning:</em> Layering packages can make rebasing operations fail, you should always do an <code>rpm-ostree reset</code> to remove all layered packages before switching images. </p>
+ <p>To install a single package (for example, <code>zsh</code>), run:</p>
+ <p><code>bash
+ sudo rpm-ostree install zsh</code>
+ To apply the staged new staged image that includes your packages, reboot your computer.</p>
+ <p>There is no command to enable <link type="seealso" href="https://copr.fedorainfracloud.org/">copr</link> or other repositories in <code>rpm-ostree</code>, but you can add the repo files manually to <code>/etc/yum.repos.d/</code></p>
+</section>
+
+
+</page>
