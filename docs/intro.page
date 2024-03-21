@@ -10,34 +10,16 @@
 
 
 <section>
- <title>bluefin</title>
- <p><em style="strong">This image is considered Beta</em>
- <em style="strong">Release Date around April 18th 2024</em> </p>
- <list>
- <item><p><link type="seealso" href="https://projectbluefin.io">projectbluefin.io</link></p></item>
- <item><p><link type="seealso" href="https://www.ypsidanger.com/announcing-project-bluefin/">Announcement Blog Post</link></p></item>
- </list>
- <p>A familiar(ish) Ubuntu desktop for Fedora Silverblue. It strives to cover these two use cases. For end users it provides a system as reliable as a Chromebook with near-zero maintainance, with the power of Ubuntu and Fedora fused together. For gamers we strive to deliver a world-class Flathub gaming experience</p>
+    <title>Bluefin</title>
+    <p>A familiar(ish) Ubuntu desktop for Fedora Silverblue. It strives to cover these two use cases. For end users it provides a system as reliable as a Chromebook with near-zero maintainance, with the power of Ubuntu and Fedora fused together. For gamers we strive to deliver a world-class Flathub gaming experience</p>
 </section>
 
 <section>
- <title><link type="seealso" href="https://download.projectbluefin.io/bluefin-gts.iso"><em style="strong">bluefin-gts.iso</em></link> <link type="seealso" href="https://download.projectbluefin.io/bluefin-gts-CHECKSUM">(checksum)</link></title>
- <p>Recommended for new users using AMD and Intel GPUs (3.7GB, based on Fedora 38)</p>
-</section>
-
-<section>
- <title><link type="seealso" href="https://download.projectbluefin.io/bluefin-nvidia-gts.iso"><em style="strong">bluefin-nvidia-gts.iso</em></link> <link type="seealso" href="https://download.projectbluefin.io/bluefin-nvidia-gts-CHECKSUM">(checksum)</link></title>
- <p>Recommended for new users using Nvidia GPUs (4.5GB, based on Fedora 38)</p>
- <list>
- <item><p>
- <p>If you are an experienced user who is comfortable troubleshooting and contributing feedback use: <link type="seealso" href="https://download.projectbluefin.io/bluefin-latest.iso"><em style="strong">bluefin-latest.iso</em></link> <link type="seealso" href="https://download.projectbluefin.io/bluefin-latest-CHECKSUM">(checksum)</link> and <link type="seealso" href="https://download.projectbluefin.io/bluefin-nvidia-latest.iso"><em style="strong">bluefin-nvidia-latest.iso</em></link> <link type="seealso" href="https://download.projectbluefin.io/bluefin-nvidia-latest-CHECKSUM">(checksum)</link></p>
- </p></item>
- <item><p>
- <p>Check out <link type="seealso" href="https://universal-blue.discourse.group/docs?topic=39">Bluefin DX</link> for developer focused images</p>
- </p></item>
- </list>
+    <title>Grand Touring Support</title>
  <p><media type="image" src="upload://vVmsjN8EkzqPRYoxbc2RzRvwCd5.jpeg" mime="image/png" /></p>
-
+ <p>Grand Touring Support releases are the default Bluefin releases.</p>
+ <p>They are always one Fedora release behind to ensure stability.</p>
+ <p>If you would like to be on the latest Fedora point release, then rebase to :latest.</p>
  <p>"Evolution is a process of constant branching and expansion." - Stephen Jay Gould</p>
 </section>
 
