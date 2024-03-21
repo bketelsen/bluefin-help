@@ -4,7 +4,7 @@
 <info>
   <link type="guide" xref="index"/>
 </info>
-<title>Setting Up Distrobox</title>
+<title>06 Setting Up Distrobox</title>
 
 <p>When you want to install applications not required on your base system and not available as Flatpaks, you can use a "toolbox" program. Toolbox programs run OS containers using <link type="seealso" href="https://podman.io/">Podman</link> allowing you to enter into the containers' command line interfaces and use them transparently with access to files in your home directory. For example, you could have one toolbox where all of your software development-related packages and programs live.</p>
 <p>Toolboxes don't require as much maintenance as running the distribution on bare metal, and you can very easily have multiple side-by-side, remove existing ones, and replace them with new entirely fresh ones.</p>

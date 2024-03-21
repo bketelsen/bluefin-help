@@ -2,13 +2,10 @@
  type="guide" id="tailscale">
 
 <info>
-    <link type="guide" xref="index#nav"/>
-
-    <desc></desc>
-    <?http header="X-Generator: html2mallard" ?>
+    <link type="guide" xref="index"/>
 </info>
 
-<title>Tailscale</title>
+<title>08 Using Tailscale</title>
 
 <p>Bluefin comes with <link type="seealso" href="https://tailscale.com/">Tailscale</link> integrated out of the box. The <code>tailscale</code> command is available via the command line. The <link type="seealso" href="https://tailscale.com/kb/start">Tailscale documentation</link> will show you how to set it up. Wireguard tools are also available if you want to use another provider. </p>
 <p>There are two extensions for tailscale that are used in Bluefin. We started with tailscale-status but are moving to tailscale-gnome-qs in Fedora 39 and newer:</p>

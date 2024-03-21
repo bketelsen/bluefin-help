@@ -1,0 +1,58 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="ptyxis">
+
+<info>
+    <link type="guide" xref="index"/>
+
+</info>
+
+<title>04 Setting Up The Ptyxis Terminal</title>
+
+    <p><span>Bluefin (and Bazzite) use the </span><link type="seealso" href="https://gitlab.gnome.org/chergert/ptyxis"><span>Ptyxis terminal</span></link><span>, a container focused terminal designed to make working with containers seamless. Hitting </span><span>Ctrl</span><span>-</span><span>Alt</span><span>-</span><span>t</span><span> will launch a host terminal. We recommend right clicking on the tab and pinning the host, so that you have it handy.</span></p><p><media type="image" src="upload://qteclesofL8ADoT3p2zSCHwhJP9.png" mime="image/png" /></p><p><span>And then set a container in the profile settings, </span><code>ubuntu</code><span> or whatever container you want:</span></p><p><media type="image" src="upload://fRXwYYRhprJRowOBVA41y8XBKnv.png" mime="image/png" /></p><p><span>Once you get used to a container-native workflow you'll end up naturally in a container.</span></p><p><span>You can pin then both to keep them handy, </span><span>Alt</span><span>-</span><span>0</span><span> and </span><span>Alt</span><span>-</span><span>1</span><span> switch back and forth between the host and the container.:</span></p><p><media type="image" src="upload://fNa8au9N9qo6aPD1E4S48rMw40n.png" mime="image/png" /></p><p><span>All of your distroboxes are available in Ptyxis's tab so you can quickly create new ones as you need them:</span></p><p><media type="image" src="upload://fn3h6el0tYkVKBHrfWqiKArMpEh.png" mime="image/png" /></p>
+<section>
+ <subtitle><span>Keyboard Shortcuts</span></subtitle><p><span>Ctrl</span><span>Alt</span><span>-</span><span>t</span><span> - opens a host terminal</span></p><p><em style="strong"><span>Note:</span></em><span> (these keyboard shortcuts are currently not functioning):</span></p><p><span>Ctrl</span><span>Alt</span><span>-</span><span>u</span><span> - opens an </span><code>ubuntu</code><span> terminal</span>
+ <span>Ctrl</span><span>Alt</span><span>-</span><span>f</span><span> - opens an </span><code>fedora</code><span> terminal</span>
+ <span>Ctrl</span><span>Alt</span><span>-</span><span>enter</span><span> - opens a minimal </span><code>bluefin-cli</code><span> terminal with Homebrew. (In progress)</span></p><p><em style="strong"><span>Are you serious?</span></em><span> We don't expect people to use their computer this way (though we need to use it this way to make it, </span><em><span>sigh</span></em><span>). The idea is to show how much flexibility you have when choosing the environment you want to work in. </span><code>ubuntu</code><span> is the intended default and most terminal users will be served just fine with one single container. Here's a good blog post on </span><link type="seealso" href="https://www.ypsidanger.com/declaring-your-own-personal-distroboxes/"><span>generating a declarative distrobox</span></link><span>.</span></p><p><span>Once you get used to a container-native workflow you'll end up naturally in a container and usually  only using the host for system level maintenance like checking for updates manually.</span></p>
+</section>
+
+<section>
+ <subtitle><span>Setting up Distroboxes</span></subtitle><p><span>Check the distrobox documentation for instructions on setting up your containers:</span></p><p><link type="seealso" href="https://universal-blue.discourse.group/docs?topic=44"><span>https://universal-blue.discourse.group/docs?topic=44</span></link></p>
+</section>
+
+<section>
+ <subtitle><span>Managing distroboxes with BoxBuddy</span></subtitle><p><span>The </span><link type="seealso" href="https://flathub.org/apps/io.github.dvlv.boxbuddyrs"><span>BoxBuddy</span></link><span> application is included in the logo menu as "Containers". This application is used to manage your interactive containers:</span></p><p><media type="image" src="upload://mB16NFzit0JGlKNJsMb6oxZNF6T.png" mime="image/png" /></p><p><media type="image" src="upload://tHraWTmQY8Z9X6MsW8ct8vP5XXh.png" mime="image/png" /></p><p><span>This appplication let's you create ad hoc distroboxes, manage upgrades, etc.</span></p><p><media type="image" src="upload://opB16liOrtd6AM4dfD4CoosuObd.png" mime="image/png" /></p>
+</section>
+
+<section>
+ <subtitle><span>Other Awesome Tools</span></subtitle><list>
+ <item><p><link type="seealso" href="https://flathub.org/apps/com.github.marhkb.Pods"><span>Pods</span></link><span> is also a great way to manage your containers graphically.</span></p></item>
+ <item><p><link type="seealso" href="https://flathub.org/apps/io.podman_desktop.PodmanDesktop"><span>Podman Desktop</span></link><span> - Containers and Kubernetes for application developers</span></p></item>
+ </list>
+    
+        
+            
+                
+            
+             <list>
+                
+ <item><p><link xref="#Keyboard-Shortcuts">Keyboard Shortcuts</link></p></item>
+ <item><p><link xref="#Setting-up-Distroboxes">Setting up Distroboxes</link></p></item>
+ <item><p><link xref="#Managing-distroboxes-with-BoxBuddy">Managing distroboxes with BoxBuddy</link></p></item>
+ <item><p><link xref="#Other-Awesome-Tools">Other Awesome Tools</link></p></item>
+ </list>
+ Expand allBack to topGo to bottom
+            
+        
+    
+    
+         <list>
+ <item><p><link xref="#Keyboard-Shortcuts">Keyboard Shortcuts</link></p></item>
+ <item><p><link xref="#Setting-up-Distroboxes">Setting up Distroboxes</link></p></item>
+ <item><p><link xref="#Managing-distroboxes-with-BoxBuddy">Managing distroboxes with BoxBuddy</link></p></item>
+ <item><p><link xref="#Other-Awesome-Tools">Other Awesome Tools</link></p></item>
+ </list>
+ Expand allBack to topGo to bottom
+</section>
+
+
+</page>

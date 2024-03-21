@@ -2,13 +2,10 @@
  type="guide" id="software">
 
 <info>
-    <link type="guide" xref="index#nav"/>
-
-    <desc></desc>
-    <?http header="X-Generator: html2mallard" ?>
+    <link type="guide" xref="index"/>
 </info>
 
-<title>Software</title>
+<title>03 Installing Software</title>
 
 
 <section>

@@ -1,0 +1,10 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+<title>Bluefin Documentation</title>
+
+<media type="image" src="bluefin.png" width="288" height="288"/>
+
+<p>The next generation Linux workstation, designed for reliability, performance, and sustainability:</p>
+
+</page>

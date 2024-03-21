@@ -4,7 +4,7 @@
 <info>
   <link type="guide" xref="index"/>
 </info>
-<title>Developer Edition</title>
+<title>10 Developer Edition</title>
 <p>Bluefin "DX"</p>
 
 <p>Bluefin Developer Experience (<code>bluefin-dx</code>) is a dedicated developer image with bundled tools. Unlike traditional Linux systems, the operating system and developer environment are explicitly and purposely separated. </p>
