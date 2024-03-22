@@ -16,16 +16,11 @@
 
 <section>
     <title>Grand Touring Support</title>
- <p><media type="image" src="upload://vVmsjN8EkzqPRYoxbc2RzRvwCd5.jpeg" mime="image/png" /></p>
+ <p><media type="image" src="intro_media.jpeg" mime="image/png" /></p>
  <p>Grand Touring Support releases are the default Bluefin releases.</p>
  <p>They are always one Fedora release behind to ensure stability.</p>
  <p>If you would like to be on the latest Fedora point release, then rebase to :latest.</p>
  <p>"Evolution is a process of constant branching and expansion." - Stephen Jay Gould</p>
-</section>
-
-<section>
- <title>Introductory Video</title>
- <p>https://www.youtube.com/watch?v=YFXufAVdrw4</p>
 </section>
 
 <section>

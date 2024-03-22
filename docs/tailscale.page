@@ -14,7 +14,7 @@
 <item><p>F39: <link type="seealso" href="https://github.com/joaophi/tailscale-gnome-qs">tailscale-gnome-qs</link></p></item>
 </list>
 <p>Here's what it looks like: </p>
-<p><media type="image" src="upload://dJxDNGmjRPaHiakyLQxM3JI584Z.png" mime="image/png" /></p>
+<p><media type="image" src="tailscale_media.png" mime="image/png" /></p>
 <p>Both extensions require a <code>sudo tailscale set --operator=$USER</code> so that your user account can toggle things like the VPN, etc. </p>
 <p>See <link type="seealso" href="https://universal-blue.discourse.group/t/managing-extensions/166/1">Managing Extensions</link> for instructions on how to turn off the extension if you don't use Tailscale.</p>
 
