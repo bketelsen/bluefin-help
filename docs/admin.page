@@ -41,9 +41,14 @@
  <p>See <link type="seealso" href="https://universal-blue.discourse.group/docs?topic=80">configuration of updates</link> if you want to change the default behavior.</p>
  <p>Machine firmware updates are provided through the standard Software Center:</p>
  <p><media type="image" src="upload://cFCaYQvGAZGsNbKZDJeq6maBDFW.png" mime="image/png" /></p>
- <list>
- <item><p>See also: https://universal-blue.discourse.group/docs?topic=513</p></item>
+
+<section>
+ <subtitle> Configuring System Updates</subtitle>  <p><em style="strong"><span>Warning: Disabling automatic updates is an unsupported configuration.</span></em></p>
+ <p><span>The following just commands enable and disable the appropriate services:</span></p><list>
+ <item><p><code>ujust toggle-updates</code></p></item>
  </list>
+</section>
+
 </section>
 
 <section>
