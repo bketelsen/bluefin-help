@@ -1,0 +1,122 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="administration">
+<info>
+  <link type="guide" xref="index"/>
+</info>
+<title>02 Administration Guide</title>
+
+<section>
+ <title>Bluefin Administration</title>
+</section>
+
+<section>
+ <title>Day to Day Operation</title>
+ <p>Bluefin is designed to be installed for the life of the hardware without reinstallation. Unlike traditional operating systems the image is always pristine and "clean", making upgrades less problematic. Updates are automatic and silent by default. </p>
+</section>
+
+<section>
+ <title>Installing Applications</title>
+</section>
+
+<section>
+ <subtitle>Graphical Applications</subtitle>
+ <p>Use the GNOME Software Center to <link type="seealso" href="https://flathub.org/">install applications from Flathub</link>. Unlike stock Fedora, system updates and upgrades are not handled by this application, it's scope has been reduced to only install Flatpaks from Flathub. The <link type="seealso" href="https://flathub.org/apps/io.github.flattool.Warehouse">Warehouse</link> tool is included for management. </p>
+ <p><media type="image" src="upload://fsykftNe5xGcslvq4pETWwlVIA1.png" mime="image/png" /></p>
+</section>
+
+<section>
+ <subtitle>Command Line Applications</subtitle>
+ <p>The <link type="seealso" href="https://brew.sh/">brew</link> application is the package manager used for installing command line applications in Bluefin. </p>
+ <list>
+ <item><p><link type="seealso" href="https://docs.brew.sh/">Homebrew Documentation</link></p></item>
+ <item><p><link type="seealso" href="https://formulae.brew.sh/">Homebrew packages</link></p></item>
+ <item><p><link type="seealso" href="https://devhints.io/homebrew">Cheatsheet</link></p></item>
+ </list>
+</section>
+
+<section>
+ <title>System Updates</title>
+ <p>Bluefin is designed to be "hands off". System updates apply once a day, and Flatpaks update twice a day <link type="seealso" href="https://github.com/ublue-os/config/tree/main/files/usr/lib/systemd">in the background</link>. Updates are applied when the system reboots. Therefore, it is recommended to routinely power off your device when it's not being used to ensure kernel updates are being applied. Application updates (like the browser) happen independently of this and don't require a reboot.</p>
+ <p>See <link type="seealso" href="https://universal-blue.discourse.group/docs?topic=80">configuration of updates</link> if you want to change the default behavior.</p>
+ <p>Machine firmware updates are provided through the standard Software Center:</p>
+ <p><media type="image" src="upload://cFCaYQvGAZGsNbKZDJeq6maBDFW.png" mime="image/png" /></p>
+ <list>
+ <item><p>See also: https://universal-blue.discourse.group/docs?topic=513</p></item>
+ </list>
+</section>
+
+<section>
+ <subtitle>Upgrades and Throttle Settings</subtitle>
+ <p>Bluefin is available with two throttle settings.</p>
+ <p>The latest stable release of Fedora is always tagged <code>latest</code>. The still-supported but older release is labelled as <code>gts</code>, which is slang for "Grand Touring Series", for those who wish to enjoy the ride from a slower cadence. It is the default Bluefin experience starting with Fedora 38. In the future we hope to offer <code>lts</code> -&gt; <code>gts</code> -&gt; <code>latest</code> as settings. </p>
+ <p>Explicit version tags of the Fedora release are available for users who wish to manually handle their upgrade cycle manually:</p>
+ <p>To lock to Fedora 39, first ensure you don't have any layered packages. Most people will not unless you explicitly install them.</p>
+ <p><code>bash
+ sudo rpm-ostree reset</code></p>
+ <p><code>bash
+ sudo bootc switch ghcr.io/ublue-os/bluefin:39</code></p>
+ <p>To always be on the latest stable release:</p>
+ <p><code>bash
+ sudo bootc switch ghcr.io/ublue-os/bluefin:latest</code></p>
+ <p>Additionally rebasing to a specific date tag is encouraged if you need to "pin" to a specific day or version:</p>
+ <p><code>bash
+ sudo sudo bootc ghcr.io/ublue-os/bluefin:38-20231101</code></p>
+ <p>Check the <link type="seealso" href="https://docs.fedoraproject.org/en-US/fedora-silverblue/">Fedora Silverblue User Guide</link> for more information.</p>
+</section>
+
+<section>
+ <title>Overwriting System Defaults</title>
+ <p>Most Bluefin system defaults are shipped on the base image along with Fedora configuration in <code>/usr/etc</code>. Most of these can be overriden by placing a file in <code>/etc</code>. </p>
+ <p>For example, the Distrobox configuration is in <code>/usr/etc/distrobox/distrobox.ini</code>. Your customization options will be placed in <code>/etc/distrobox/distrobox.ini</code>. This is useful for situations where you need a copy of the original file for reference. </p>
+ <p>Check the <link type="seealso" xref="https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest">XDG Base Directory Specification</link> for more information on configuration options, in particular <code>~/.local</code> and <code>~/.config</code>. </p>
+</section>
+
+<section>
+ <title>Remote Management</title>
+</section>
+
+<section>
+ <subtitle>Note</subtitle>
+
+ <p>This feature is incomplete and needs contributors to make it a reality</p>
+
+ <p>Bluefin includes Cockpit for machine management. We're hoping to include more out-of-the-box management templates, please <link type="seealso" href="https://github.com/ublue-os/bluefin/issues/271">check this issue</link> if you're interested in volunteering.</p>
+</section>
+
+<section>
+ <title>Verification</title>
+ <p>These images are signed with sigstore's <link type="seealso" href="https://docs.sigstore.dev/cosign/overview/">cosign</link>. You can verify the signature by downloading the <code>cosign.pub</code> key from this repo and running the following command:</p>
+ <p><code>bash
+ cosign verify --key cosign.pub ghcr.io/ublue-os/bluefin</code></p>
+</section>
+
+<section>
+ <title>Building Locally</title>
+ <steps>
+ <item><p>
+ <p>Clone this repository and <code>cd</code> into the working directory</p>
+ <p><code>bash
+ git clone https://github.com/ublue-os/bluefin.git
+ cd bluefin</code></p>
+ </p></item>
+ <item><p>
+ <p>Make modifications if desired</p>
+ </p></item>
+ <item><p>
+ <p>Build the image (Note that this will download and the entire image)</p>
+ <p><code>bash
+ podman build . -t bluefin</code></p>
+ </p></item>
+ <item><p>
+ <p><link type="seealso" xref="https://docs.podman.io/en/latest/markdown/podman-push.1">Podman push</link> to a registry of your choice.</p>
+ </p></item>
+ <item><p>
+ <p>Rebase to your image to wherever you pushed it:</p>
+ <p><code>bash
+ sudo rpm-ostree rebase ostree-image-signed:docker://whatever/bluefin:latest</code></p>
+ </p></item>
+ </steps>
+</section>
+
+</page>
