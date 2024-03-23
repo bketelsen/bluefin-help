@@ -1,0 +1,66 @@
+<page xmlns="http://projectmallard.org/1.0/"
+ type="guide" id="configureup">
+
+<info>
+    <link type="guide" xref="index#nav"/>
+
+    <desc></desc>
+    <?http header="X-Generator: html2mallard" ?>
+</info>
+
+<title>Configureup</title>
+
+
+
+
+
+
+
+
+    <p><em style="strong"><span>Warning: Disabling automatic updates is an unsupported configuration.</span></em></p>
+<section>
+ <title><span>Commands</span></title><p><span>The following just commands enable and disable the appropriate services:</span></p><list>
+ <item><p><code>ujust toggle-updates</code></p></item>
+ </list>
+</section>
+
+<section>
+ <title><span>Manually (Main images)</span></title><p><span>You can individually disable which automatic update timers </span><link type="seealso" href="https://github.com/ublue-os/config/blob/6c5991eeb2ee186e846d50285d8ab0e1477dd003/build/ublue-os-just/10-update.just"><span>ublue-os/config</span></link><span> provides with the following commands:</span></p><list>
+ <item><p><span>flatpak system: </span><code>sudo systemctl disable flatpak-system-update.timer</code></p></item>
+ <item><p><span>flatpak user: </span><code>sudo systemctl --global disable flatpak-user-update.timer</code></p></item>
+ </list><p><span>You can also configure automatic </span><code>rpm-ostree</code><span> updates by editing </span><code>/etc/rpm-ostreed.conf</code><span> and changing "AutomaticUpdatePolicy" to "none" or "check":</span></p><code><span style="ini hljs"><span style="hljs-section">[Daemon]</span>
+ <span style="hljs-attr">AutomaticUpdatePolicy</span>=check
+ </span></code>
+</section>
+
+<section>
+ <title><span>Manually for Bazzite and Bluefin</span></title><p><span>Bazzite and Bluefin use ublue-update, which you can enable and disable with the following commands:</span></p><list>
+ <item><p><code>systemctl disable ublue-update.timer</code><span> - Disable automatic updates</span></p></item>
+ <item><p><code>systemctl enable ublue-update.timer</code><span> - Enable automatic updates</span></p></item>
+ </list>
+    
+        
+            
+                
+            
+             <list>
+                
+ <item><p><link xref="#Commands">Commands</link></p></item>
+ <item><p><link xref="#Manually-Main-images">Manually (Main images)</link></p></item>
+ <item><p><link xref="#Manually-for-Bazzite-and-Bluefin">Manually for Bazzite and Bluefin</link></p></item>
+ </list>
+ Expand allBack to topGo to bottom
+            
+        
+    
+    
+         <list>
+ <item><p><link xref="#Commands">Commands</link></p></item>
+ <item><p><link xref="#Manually-Main-images">Manually (Main images)</link></p></item>
+ <item><p><link xref="#Manually-for-Bazzite-and-Bluefin">Manually for Bazzite and Bluefin</link></p></item>
+ </list>
+ Expand allBack to topGo to bottom
+</section>
+
+
+</page>
